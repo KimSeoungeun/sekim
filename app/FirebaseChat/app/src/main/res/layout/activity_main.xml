@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="파이어베이스 채팅"/>
+        <EditText
+            android:id="@+id/editId"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="아이디"/>
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="비밀번호"/>
+        <Button
+            android:id="@+id/btnSignin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="회원 가입일 경우 아이다와 비밀번호\n그리고 별명을 입력한 후\n회원가입 버튼을 터치합니다."/>
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="별명"/>
+        <Button
+            android:id="@+id/btnSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"/>
+
+    </LinearLayout>
+</LinearLayout>
