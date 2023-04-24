@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- jQuery 링크 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- css 링크 -->
+    <link rel="stylesheet" href="./css/Change.css">
+    <!-- 구글 폰트 링크 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Titan+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!-- 타이틀 제목 -->
+    <title>거스름돈 계산기</title>
+    <!-- 파비콘 링크 -->
+    <link rel="shortcut icon" href="./image/lightLogo.png">
+    <!-- js 링크 -->
+    <script src="./js/Change.js"></script>
+</head>
+
+<body>
+    <!-- 타이틀 제목 -->
+    <div class="MainTitle">거스름돈 계산기</div>
+    <div class="MainImgBox">
+        <img class="machineImg" src="./image/vending_machine.png" alt="자판기">
+        <!-- 거스름돈 -->
+        <section class="ChangeResult"></section>
+        <section class="ChangeResult2"></section>
+        <!-- 구매 버튼 -->
+        <button class="purchase_B">구매</button>
+        <!-- 초기화 버튼 -->
+        <img class="ResetImg" src="./image/reset.png" alt="초기화">
+        <!-- 상품 가격 -->
+        <section class="Price1">
+            <article>5,550원</article>
+            <article>3,550원</article>
+            <article>3,200원</article>
+        </section>
+        <section class="Price2">
+            <article>1,340원</article>
+            <article>9,520원</article>
+            <article>1,650원</article>
+        </section>
+        <section class="Price3">
+            <article>7,550원</article>
+            <article>1,570원</article>
+            <article>9,550원</article>
+        </section>
+        <!-- 상품가격 + 받은돈 -->
+        <section class="expression_box">
+            <article id="PriceExp"></article>
+            <article id="PaymentExp"></article>
+        </section>
+        <p class="ChangeTitle">거스름돈</p>
+        <p class="PriceTitle">상품금액</p>
+        <p class="PaymentTitle">지불금액</p>
+        <!-- 자판기 상품 이미지, 상품 클릭시 GoodsM Funtion(가격)-->
+        <div class="StoreBox">
+            <img src="./image/churros.jpeg" alt="꼬북칩 초코맛" onclick="GoodsM(5550, '꼬북칩')">
+            <img src="./image/originalP.jpeg" alt="포카칩" onclick="GoodsM(3550, '포카칩')">
+            <img src="./image/corkcorn.jpeg" alt="꼬깔콘" onclick="GoodsM(3200, '꼬깔콘')">
+            <img src="./image/bearmark.png" alt="곰표아이스크림" onclick="GoodsM(1340, '곰표아이스')">
+            <img src="./image/worldcorn.jpeg" alt="월드콘" onclick="GoodsM(9520, '월드콘')">
+            <img src="./image/porkcorn.jpeg" alt="돼지콘" onclick="GoodsM(1650, '돼지콘')">
+            <img src="./image/cokecola.jpeg" alt="코카콜라" onclick="GoodsM(7550, '코카콜라')">
+            <img src="./image/boat.png" alt="갈아만든배" onclick="GoodsM(1570, '갈아만든배')">
+            <img src="./image/demisoda.png" alt="데미소다" onclick="GoodsM(9550, '데미소다')">
+        </div>
+    </div>
+    <!-- 지폐 이미지 -->
+    <div class="BankBox">
+        <img src="./image/fifty_thousandWon.png" alt="오만원" onclick="Payment(50000)">
+        <img src="./image/ten_thousandWon.jpeg" alt="만원" onclick="Payment(10000)">
+        <img src="./image/five_thousandWon.jpeg" alt="오천원" onclick="Payment(5000)">
+        <img src="./image/one_thousandWon.jpeg" alt="천원" onclick="Payment(1000)">
+    </div>
+    <!-- 동전 이미지 -->
+    <div class="CoinBox">
+        <img src="./image/500won.png" alt="오백원" onclick="Payment(500)">
+        <img src="./image/100won.png" alt="백원" onclick="Payment(100)">
+        <img src="./image/50won.png" alt="오십원" onclick="Payment(50)">
+        <img src="./image/10won.png" alt="십원" onclick="Payment(10)">
+    </div>
+    <!-- 조명 on/off -->
+    <div class="light_Background"></div>
+    <img class="light_off" src="./image/lightoff.png" alt="꺼진조명">
+    <img class="light_on" src="./image/lighton.png" alt="켜진조명">
+    <p class="light_Text">
+        <span>L</span>
+        <span>i</span>
+        <span>g</span>
+        <span>h</span>
+        <span>t&nbsp</span>
+        <span>O</span>
+        <span>n</span>
+        <span>!</span>
+    </p>
+    <!-- 장바구니 -->
+    <button class="ShoppingButton">장바구니</button>
+    <div class="Shopping_basket">
+        <section id="Section1"></section>
+        <section id="Section2"></section>
+        <section id="Section3"></section>
+        <section id="Section4"></section>
+        <section id="Section5"></section>
+        <section id="Section6"></section>
+        <section id="Section7"></section>
+        <section id="Section8"></section>
+        <section id="Section9"></section>
+    </div>
+    <!-- 경고창 -->
+    <section class="Warning">
+        <article id="Warning_text"></article>
+        <article id="Warning_click">확인</article>
+    </section>
+
+</body>
+
+</html>

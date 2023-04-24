@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  cursor: default;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.AboutImage {
+  width: 100%;
+  height: 100%;
+  background-image: url("../image/about.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.penImage {
+  width: 50px;
+  height: 500px;
+  background-image: url("../image/pen.png");
+  background-size: 50px 500px;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  margin-top: -250px;
+  animation-name: Pen;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes Pen {
+  10% {
+    top: 48%;
+  }
+  20% {
+    top: 50%;
+  }
+  30% {
+    top: 48%;
+  }
+  40% {
+    top: 50%;
+  }
+}
+.SkillBox {
+  width: 160px;
+  height: 250px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  position: absolute;
+  right: 25%;
+  top: 24%;
+}
+
+.SkillName {
+  width: 160px;
+  height: 70px;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.SkillName button {
+  width: 45%;
+  height: 45%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid black;
+  font-family: "Anton";
+  font-size: 13px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.SkillName2 {
+  width: 160px;
+  height: 70px;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.SkillName button:nth-child(2), .SkillName2 button:nth-child(2), .SkillName3 button:nth-child(2) {
+  margin-left: 2px;
+}
+
+.SkillName2 button {
+  width: 45%;
+  height: 45%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid black;
+  font-family: "Anton";
+  font-size: 13px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.SkillName3 {
+  width: 160px;
+  height: 70px;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.SkillName3 button {
+  width: 45%;
+  height: 45%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid black;
+  font-family: "Anton";
+  font-size: 13px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.SkillName button:hover, .SkillName2 button:hover, .SkillName3 button:hover {
+  background-color: gray;
+  cursor: pointer;
+}
+
+.Skilldrow {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  right: 13%;
+  top: 24%;
+}
+
+.Skilldrow article {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  font-family: "Anton";
+  text-align: center;
+  border: 3px solid black;
+  color: white;
+  font-size: 35px;
+  line-height: 200px;
+  text-shadow: 2px 2px 4px black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.VisionTool {
+  width: 355px;
+  height: 400px;
+  position: absolute;
+  right: 14.6%;
+  top: 47.5%;
+  letter-spacing: 2px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  font-family: "IBM Plex Sans KR";
+}
+
+.Vision {
+  width: 100%;
+  height: 50%;
+  letter-spacing: 2px;
+}
+
+.Vision div {
+  color: #1597E5;
+  height: 40px;
+  font-size: 25px;
+  font-family: "Do Hyeon";
+}
+
+.Vision p {
+  width: 100%;
+  height: 20%;
+  font-size: 16px;
+  padding-left: 20px;
+  line-height: 27px;
+  color: white;
+  margin-top: 10px;
+}

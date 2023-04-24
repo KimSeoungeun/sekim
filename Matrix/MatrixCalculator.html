@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- sass 연결 파일 링크 -->
+    <link rel="stylesheet" href="./css/ MatrixCalculator.css">
+    <!-- jquery 링크 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- google 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=IBM+Plex+Sans+KR&display=swap"
+        rel="stylesheet">
+    <!-- 파비콘 링크 -->
+    <link rel="shortcut icon" href="./image/파비콘이미지.jpg">
+    <!-- 아이콘 링크 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- 타이틀 -->
+    <title>행렬계산기</title>
+    <!-- js 링크 -->
+    <script src="./js/ MatrixCalculator.js"></script>
+</head>
+
+<body>
+    <!-- 텍스트 박스 -->
+    <section class="KingBox">
+        <section class="SubjectBox">행렬계산기</section>
+        <section class="subKingBox">
+            <section class="TextToolBox">
+                <article class="MainTextBox">행렬A</article>
+                <article class="MainTextBox2">행렬B</article>
+                <article class="MainTextBox3">값</article>
+                <!-- 행렬 input 입력 -->
+                <input type="text" id="RowBox" class="RowBox" onkeyup="inputNumberFormat3(this)" placeholder="행을 입력하세요."
+                    onfocus="this.placeholder=''" onblur="this.placeholder='행을 입력하세요.'" maxlength="3">
+                <input type="text" id="ColumnBox" class="ColumnBox" onkeyup="inputNumberFormat3(this)"
+                    placeholder="열을 입력하세요." onfocus="this.placeholder=''" onblur="this.placeholder='열을 입력하세요.'"
+                    maxlength="3">
+                <button id="FinishButton" class="FinishButton">입력</button>
+                <input type="text" id="RowBox2" class="RowBox2" onkeyup="inputNumberFormat3(this)"
+                    placeholder="행을 입력하세요." onfocus="this.placeholder=''" onblur="this.placeholder='행을 입력하세요.'"
+                    maxlength="3">
+                <input type="text" id="ColumnBox2" class="ColumnBox2" onkeyup="inputNumberFormat3(this)"
+                    placeholder="열을 입력하세요." onfocus="this.placeholder=''" onblur="this.placeholder='열을 입력하세요.'"
+                    maxlength="3">
+                <button id="FinishButton2" class="FinishButton2">입력</button>
+            </section>
+            <!-- 행렬A Box -->
+            <section class="NumberToolBox">
+                <article id="MainNumberBox" class="MainNumberBox">
+                </article>
+            </section>
+            <!-- 함수 사용 -->
+            <section class="calculateBox">
+                <article id="ChangeBox" class="ChangeBox">A<i class="xi-compare-arrows"></i>B</article>
+                <article id="MultiplyBox" class="MultiplyBox">A x B</article>
+                <article id="PlusBox" class="PlusBox">A + B</article>
+                <article id="SubtractBox" class="SubtractBox">A - B</article>
+                <article id="ClearBox" class="ClearBox">지우기</article>
+            </section>
+            <!-- 행렬B Box -->
+            <section class="NumberToolBox2">
+                <article id="MainNumberBox2" class="MainNumberBox2">
+                </article>
+            </section>
+            <!-- 행렬 값 Box -->
+            <article id="ResultBox" class="ResultBox">=</article>
+            <section class="NumberToolBox3">
+                <article id="MainNumberBox3" class="MainNumberBox3" onkeyup="inputNumberFormat(this)"></article>
+            </section>
+            <!-- 랜덤Box, 행렬A,B inputBox 추가와 제거 -->
+            <section id="RandomBox" class="RandomBox">랜덤</section>
+            <!--<section id="CellplusBox" class="CellplusBox">+</section>
+            <section id="CellminusBox" class="CellminusBox">-</section>-->
+            <section id="RandomBox2" class="RandomBox2">랜덤</section>
+            <!--<section id="CellplusBox2" class="CellplusBox2">+</section>
+            <section id="CellminusBox2" class="CellminusBox2">-</section>-->
+        </section>
+    </section>
+    <script>
+
+    </script>
+</body>
+
+</html>
