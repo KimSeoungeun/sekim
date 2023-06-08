@@ -58,7 +58,6 @@ class InstaMainPagerAdapter(
     }
 
     override fun createFragment(position: Int): Fragment {
-        Log.d("ssss","dd${position}")
         when (position) {
             0 -> return InstaFeedFragment()
             1 -> {
