@@ -3,17 +3,17 @@ package net.flow9.thisiskotlin.instajoin
 import android.content.Context
 import android.content.Intent
 import android.database.Cursor
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
@@ -28,10 +28,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 
-class InstaPostFragment :Fragment(){
-
+class InstaPostFargment : Fragment() {
     var imageUri: Uri? = null
     var contentInput: String = ""
+    lateinit var selectedContent: EditText
+    lateinit var selectedImageView: ImageView
+    lateinit var upload: TextView
+    lateinit var imagePickerLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,26 +44,17 @@ class InstaPostFragment :Fragment(){
         return inflater.inflate(R.layout.insta_post_fragment, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val selectedImageView = view.findViewById<ImageView>(R.id.selected_img)
-        val glide = Glide.with(activity as InstaMainActivity)
-
-        val imagerPickerLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-            imageUri = it.data!!.data
-            glide.load(imageUri).into(selectedImageView)
-        }
-
-        imagerPickerLauncher.launch(
+    fun makePost() {
+        imagePickerLauncher.launch(
             Intent(Intent.ACTION_PICK).apply {
                 this.type = MediaStore.Images.Media.CONTENT_TYPE
+                Log.d("instaa", "start")
             }
         )
-
-        view.findViewById<EditText>(R.id.selected_content).doAfterTextChanged {
+        selectedContent.doAfterTextChanged {
             contentInput = it.toString()
         }
+
 
         val retrofit = Retrofit.Builder()
             .baseUrl("http://mellowcode.org/")
@@ -68,27 +62,51 @@ class InstaPostFragment :Fragment(){
             .build()
         val retrofitService = retrofit.create(RetrofitService::class.java)
 
-        view.findViewById<TextView>(R.id.upload).setOnClickListener {
+        upload.setOnClickListener {
+            Log.d("instaa", "abc11")
+
             val file = getRealFile(imageUri!!)
-            val requestFile = RequestBody.create(MediaType.parse((activity as InstaMainActivity).contentResolver.getType(imageUri!!)), file)
-            val body = MultipartBody.Part.createFormData("image", file!!.name, requestFile)
+            val reqeustFile = RequestBody.create(
+                MediaType.parse(
+                    (activity as InstaMainActivity).contentResolver.getType(imageUri!!)
+                ), file
+            )
+            val body = MultipartBody.Part.createFormData("image", file!!.name, reqeustFile)
             val content = RequestBody.create(MultipartBody.FORM, contentInput)
             val header = HashMap<String, String>()
-            val sp = (activity as InstaMainActivity).getSharedPreferences("user_info", Context.MODE_PRIVATE)
+            val sp = (activity as InstaMainActivity).getSharedPreferences(
+                "user_info",
+                Context.MODE_PRIVATE
+            )
             val token = sp.getString("token", "")
-            header.put("Authorization","token " + token!!)
+            header.put("Authorization", "token " + token!!)
 
-            retrofitService.uploadPost(header, body, content).enqueue(object : Callback<Any>{
+            retrofitService.uploadPost(header, body, content).enqueue(object : Callback<Any> {
                 override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                    Log.d("instaa", "def")
 
                 }
 
                 override fun onFailure(call: Call<Any>, t: Throwable) {
-
+                    Log.d("instaa", "abc")
                 }
-
             })
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        selectedContent = view.findViewById(R.id.selected_content)
+        selectedImageView = view.findViewById(R.id.selected_img)
+        upload = view.findViewById(R.id.upload)
+
+        val glide = Glide.with(activity as InstaMainActivity)
+        imagePickerLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+                imageUri = it.data!!.data
+                glide.load(imageUri).into(selectedImageView)
+            }
     }
 
     private fun getRealFile(uri: Uri): File? {
